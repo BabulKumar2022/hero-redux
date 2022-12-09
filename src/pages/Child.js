@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { COUNTER_CONTEXT } from '../App';
+
 
 const Child = () => {
-    const [count, setCount] = useState(0)
+    const {count, setCount} = useContext(COUNTER_CONTEXT)
+
     return (
-        <div className='container  justify-center items-center  flex'>
-            <div className=' mt-52 rounded-lg bg-slate-300 w-64 h-64 border-solid border-black border-2 text-center '>
-                <h1 className='mb-8 mt-10 text-2xl'>{count}</h1>
-                <div className="d-flex">
-                    <button onClick={()=>setCount(count-1)} className='mx-6 p-2  bg-lime-300 rounded-lg'> Decrease</button>
-                    <button onClick={()=> setCount((prState)=>prState+1)} className='mx-6 p-2   bg-emerald-100 rounded-lg'>Increase</button>
+        <div className='w-full max-w-xl  bg-gradient-to-tr to-purple-100 from-cyan-100 p-2 rounded-md'>
+            <div className='bg-white rounded-md p-10'>
+                <h1 className='text-center text-gray-400'>Child</h1>
+                <h1 className=' mb-5 text-center text-2xl'>{count}</h1>
+                <div className="flex justify-center gap-5">
+                    <button onClick={()=>setCount(count-1)} className='px-3 py-2  bg-purple-200 rounded-lg'> Decrease</button>
+                    <button onClick={()=> setCount((prState)=>prState+1)} className='px-3 py-2  bg-cyan-200 rounded-lg'>Increase</button>
                 </div>
                 
             </div>
